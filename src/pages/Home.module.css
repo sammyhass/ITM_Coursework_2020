@@ -1,0 +1,30 @@
+.Home {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.Home h1 {
+	font-size: 2em;
+}
+
+.HomeLeft {
+	width: 40%;
+}
+
+.HomeRight {
+	width: 50%;
+}
+
+@media (max-width: 750px) {
+	.Home {
+		flex-direction: column;
+	}
+	.HomeLeft,
+	.HomeRight {
+		width: 100%;
+	}
+	.Home h1 {
+		font-size: 1.7em;
+		text-align: center;
+	}
+}
