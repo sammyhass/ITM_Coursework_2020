@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Header from './components/Header';
+import Video from './pages/Video';
+import Hobbies from './pages/Hobbies';
 
 const App = () => {
 	return (
@@ -12,6 +14,12 @@ const App = () => {
 				<Switch>
 					<Route exact path="/">
 						<Home />
+					</Route>
+					<Route path="/video">
+						<Video />
+					</Route>
+					<Route path="/hobbies">
+						<Hobbies />
 					</Route>
 				</Switch>
 			</div>

@@ -9,8 +9,8 @@ const Header = () => {
 	let location = useLocation();
 	return (
 		<div className={styles.Header}>
+			<h1>{location.pathname === '/' ? 'Home' : location.pathname.slice(1)}</h1>
 			<Navbar />
-			<h1>{location.pathname == '/' ? 'Home' : location.pathname.slice(1)}</h1>
 		</div>
 	);
 };

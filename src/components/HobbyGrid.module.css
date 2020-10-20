@@ -1,0 +1,12 @@
+.HobbyGrid {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	margin-bottom: 150px;
+}
+
+@media (max-width: 750px) {
+	.HobbyGrid {
+		flex-direction: column;
+	}
+}

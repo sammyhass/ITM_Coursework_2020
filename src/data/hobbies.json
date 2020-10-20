@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Badminton",
+		"description": "Since I was young, badminton has been my favorute sport due to its rapid and precise nature.",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Badminton-1428046.jpg",
+		"imageCredit": "https://commons.wikimedia.org/wiki/File:Badminton-1428046.jpg"
+	},
+	{
+		"name": "Hitting the Gym",
+		"description": "I love going to the gym, it always makes me feel like I've achieved something when I go",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gym_wiki.jpg/1600px-Gym_wiki.jpg",
+		"imageCredit": "https://commons.wikimedia.org/wiki/File:Gym_wiki.jpg"
+	},
+	{
+		"name": "Listening to Music",
+		"description": "I love listening to new music. I spend lots of time reading lyrics and learning about my favorite artists",
+		"image": "https://cdn.pixabay.com/photo/2020/09/23/20/27/headphones-5596987__340.jpg",
+		"imageCredit": "https://pixabay.com/photos/headphones-headset-audio-technology-690685/"
+	},
+	{
+		"name": "Playing Games",
+		"description": "Playing video games is one of my favorite pastimes. My favorite games are Super Mario Galaxy, and Animal Crossing",
+		"image": "https://p1.pxfuel.com/preview/385/62/463/super-mario-nintendo-mushroom-toys.jpg",
+		"imageCredit": "https://www.pxfuel.com/en/free-photo-ojsvi"
+	},
+	{
+		"name": "Coding",
+		"description": "I have loved writing computer programs since I was little. I spend lots of my time writing little games that I can play with family and friends",
+		"image": "https://p0.pikist.com/photos/700/732/code-coding-computer-programming-data-software-digital-technology-hacker.jpg",
+		"imageCredit": "https://www.pikist.com/free-photo-ikbne"
+	},
+	{
+		"name": "Running",
+		"description": "I adore running, it allows me to challenge myself by seeing how far I can go, how fast I am or long I can go for.",
+		"image": "https://cdn.pixabay.com/photo/2020/07/15/12/59/run-5407625__340.jpg",
+		"imageCredit": "https://pixabay.com/photos/run-runner-leg-running-fitness-5407625/"
+	}
+]
