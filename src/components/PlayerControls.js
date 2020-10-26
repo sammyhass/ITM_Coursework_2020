@@ -23,7 +23,17 @@ class PlayerControls extends Component {
 	render() {
 		return (
 			<div className={styles.PlayerControls}>
-				<div className={styles.leftControls}>
+				<div>
+					<input
+						type="range"
+						min={0}
+						max={this.props.duration}
+						value={this.props.currentTime}
+						className={styles.slider}
+						onChange={e => this.props.changeTime(e.target.value)}
+					/>
+				</div>
+				<div className={styles.AdditionalControls}>
 					<button onClick={this.playPauseClicked}>
 						{!this.state.playing ? '▶️' : '⏸'}
 					</button>
@@ -31,12 +41,6 @@ class PlayerControls extends Component {
 						{this.props.currentTime} / {this.props.duration}
 					</p>
 				</div>
-				<div
-					className={styles.audioProgress}
-					style={{
-						width: (this.props.currentTime / this.props.duration) * 80 + '%',
-					}}
-				></div>
 			</div>
 		);
 	}

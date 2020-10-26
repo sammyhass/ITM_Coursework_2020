@@ -71,6 +71,10 @@ class AudioPlayer extends Component {
 		this.audioRef.current.paused = isPaused;
 	};
 
+	changeTime = time => {
+		this.audioRef.current.currentTime = time;
+	};
+
 	render() {
 		return (
 			<div className={styles.AudioPlayer}>
@@ -87,6 +91,7 @@ class AudioPlayer extends Component {
 					duration={this.state.duration}
 					updateCurrentTime={this.updateCurrentTime}
 					resetCurrentTime={this.resetCurrentTime}
+					changeTime={this.changeTime}
 				/>
 			</div>
 		);
