@@ -8,10 +8,14 @@ const Coursework = () => {
 			<h2>Labs</h2>
 			<ul>
 				<li>
-					<a href="/Bounce/">Lab 4 - Bounce</a>
+					<a href="http://users.sussex.ac.uk/~sh858/IM/labwork/Bounce/">
+						Bounce (Lab 4)
+					</a>
 				</li>
 				<li>
-					<a href="/HtmlCssLab">Lab 3 - HTML and CSS</a>
+					<a href="http://users.sussex.ac.uk/~sh858/IM/labwork/HtmlCssLab/">
+						HTML and CSS Lab (Lab 3)
+					</a>
 				</li>
 			</ul>
 		</div>

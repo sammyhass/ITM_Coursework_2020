@@ -12,6 +12,7 @@ const HobbyGrid = () => {
 			name={hobby.name}
 			description={hobby.description}
 			image={hobby.image}
+			key={hobby.name}
 		/>
 	));
 

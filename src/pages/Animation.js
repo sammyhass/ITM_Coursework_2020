@@ -33,7 +33,7 @@ class Animation extends Component {
 		return (
 			<div>
 				<div id="animate_container"></div>
-				<AudioPlayer file="/assets/Brighton.mp3" />
+				<AudioPlayer file="/~sh858/IM/assets/Brighton.mp3" />
 			</div>
 		);
 	}

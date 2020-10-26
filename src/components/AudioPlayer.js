@@ -15,9 +15,34 @@ class AudioPlayer extends Component {
 	}
 
 	componentDidMount = () => {
+		this.currentTimeInterval = 0;
 		this.audioRef.current.onloadedmetadata = () => {
-			this.setState({ duration: Math.ceil(this.audioRef.current.duration) });
+			this.setState({
+				duration: Math.ceil(this.audioRef.current.duration),
+			});
 		};
+
+		setInterval(() => {
+			this.currentTimeInterval = setInterval(() => {
+				this.updateCurrentTime();
+			}, 500);
+		});
+	};
+
+	componentWillUnmount() {
+		this.audioPause();
+	}
+
+	updateCurrentTime = () => {
+		if (!this.audioRef.current) return;
+		this.setState({
+			currentTime: Math.ceil(this.audioRef.current.currentTime),
+		});
+	};
+
+	resetCurrentTime = () => {
+		this.audioRef.current.currentTime = 0;
+		this.updateCurrentTime();
 	};
 
 	audioPlay = () => {
@@ -58,8 +83,10 @@ class AudioPlayer extends Component {
 				<PlayerControls
 					audioPlay={this.audioPlay}
 					audioPause={this.audioPause}
-					getCurrentTime={this.getCurrentTime}
+					currentTime={this.state.currentTime}
 					duration={this.state.duration}
+					updateCurrentTime={this.updateCurrentTime}
+					resetCurrentTime={this.resetCurrentTime}
 				/>
 			</div>
 		);

@@ -1,47 +1,45 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
 import styles from './PlayerControls.module.css';
 
-const PlayerControls = ({
-	audioPlay,
-	audioPause,
-	getCurrentTime,
-	duration,
-}) => {
-	const [playing, setIsPlaying] = useState(false);
-	const [currentTime, setCurrentTime] = useState(0);
-
-	const playPauseClicked = () => {
-		const interval = () => {
-			setCurrentTime(Math.ceil(getCurrentTime()));
-		};
-		const currentlyPlaying = playing;
-		setIsPlaying(!playing);
-		if (currentlyPlaying) {
-			clearInterval(interval);
-			audioPause();
-		} else {
-			setInterval(interval, 1000);
-			audioPlay();
-		}
+class PlayerControls extends Component {
+	state = {
+		playing: false,
 	};
 
-	return (
-		<div className={styles.PlayerControls}>
-			<div className={styles.leftControls}>
-				<button onClick={playPauseClicked}>{!playing ? '▶️' : '⏸'}</button>
-				<p>
-					{currentTime} / {duration}
-				</p>
+	componentDidMount() {
+		this.props.updateCurrentTime();
+	}
+
+	playPauseClicked = () => {
+		const currentlyPlaying = this.state.playing;
+		this.setState({ playing: !this.state.playing });
+		if (currentlyPlaying) {
+			this.props.audioPause();
+		} else {
+			this.props.audioPlay();
+		}
+	};
+	render() {
+		return (
+			<div className={styles.PlayerControls}>
+				<div className={styles.leftControls}>
+					<button onClick={this.playPauseClicked}>
+						{!this.state.playing ? '▶️' : '⏸'}
+					</button>
+					<p>
+						{this.props.currentTime} / {this.props.duration}
+					</p>
+				</div>
+				<div
+					className={styles.audioProgress}
+					style={{
+						width: (this.props.currentTime / this.props.duration) * 80 + '%',
+					}}
+				></div>
 			</div>
-			<div
-				className={styles.audioProgress}
-				style={{
-					width: (currentTime / duration) * 80 + '%',
-				}}
-			></div>
-		</div>
-	);
-};
+		);
+	}
+}
 
 export default PlayerControls;
