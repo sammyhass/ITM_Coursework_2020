@@ -1,0 +1,28 @@
+.PlayerControls {
+	width: 100%;
+	background: #eee;
+	display: flex;
+	border-radius: 4px;
+	align-items: center;
+}
+
+.PlayerControls button {
+	background: transparent;
+	border: none;
+	font-size: 2em;
+}
+
+.PlayerControls button:focus {
+	border: none;
+}
+
+.audioProgress {
+	background: blue;
+	border-radius: 5px;
+	height: 20px;
+}
+
+.leftControls {
+	display: flex;
+	width: 15%;
+}

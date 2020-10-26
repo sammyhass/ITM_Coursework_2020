@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Video from './pages/Video';
 import Hobbies from './pages/Hobbies';
+import Animation from './pages/Animation';
+import Coursework from './pages/Coursework';
 
 const App = () => {
 	return (
@@ -20,6 +22,12 @@ const App = () => {
 					</Route>
 					<Route path="/hobbies">
 						<Hobbies />
+					</Route>
+					<Route path="/animation">
+						<Animation />
+					</Route>
+					<Route path="/coursework">
+						<Coursework />
 					</Route>
 				</Switch>
 			</div>
