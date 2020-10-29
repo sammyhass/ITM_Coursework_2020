@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import PlayerControls from './PlayerControls';
+import PlayerControls from '../PlayerControls/PlayerControls';
 import styles from './AudioPlayer.module.css';
 
 class AudioPlayer extends Component {
@@ -29,9 +29,9 @@ class AudioPlayer extends Component {
 		});
 	};
 
-	componentWillUnmount() {
+	componentWillUnmount = () => {
 		this.audioPause();
-	}
+	};
 
 	updateCurrentTime = () => {
 		if (!this.audioRef.current) return;

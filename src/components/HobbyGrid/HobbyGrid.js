@@ -1,8 +1,8 @@
 import React from 'react';
 
-import hobbies from '../data/hobbies.json';
+import hobbies from '../../data/hobbies.json';
 
-import HobbyCard from './HobbyCard';
+import HobbyCard from '../HobbyCard/HobbyCard';
 
 import styles from './HobbyGrid.module.css';
 

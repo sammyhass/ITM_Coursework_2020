@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Raphael from 'raphael';
-import AudioPlayer from '../components/AudioPlayer';
+import AudioPlayer from '../components/AudioPlayer/AudioPlayer';
 
 import audioFile from '../assets/Brighton.mp3';
 

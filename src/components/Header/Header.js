@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import styles from './Header.module.css';
 
-import Navbar from './Navbar';
+import Navbar from '../Navbar/Navbar';
 
 const Header = () => {
 	let location = useLocation();
