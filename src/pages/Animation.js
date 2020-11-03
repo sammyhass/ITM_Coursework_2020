@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import Raphael from 'raphael';
-import AudioPlayer from '../components/AudioPlayer/AudioPlayer';
-
-import audioFile from '../assets/Brighton.mp3';
 
 class Animation extends Component {
 	componentDidMount() {
@@ -35,7 +32,6 @@ class Animation extends Component {
 		return (
 			<div>
 				<div id="animate_container"></div>
-				<AudioPlayer file={audioFile} />
 			</div>
 		);
 	}

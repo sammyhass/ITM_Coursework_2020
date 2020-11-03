@@ -2,9 +2,9 @@ import React from 'react';
 
 import hobbies from '../../data/hobbies.json';
 
-import HobbyCard from '../HobbyCard/HobbyCard';
+import HobbyCard from './Card';
 
-import styles from './HobbyGrid.module.css';
+import styles from './Grid.module.css';
 
 const HobbyGrid = () => {
 	const renderedCards = hobbies.map(hobby => (

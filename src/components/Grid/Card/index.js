@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './HobbyCard.module.css';
+import styles from './Card.module.css';
 
 const HobbyCard = ({ name, description, image, imageCredit }) => {
 	return (
