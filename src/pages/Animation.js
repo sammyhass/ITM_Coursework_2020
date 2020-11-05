@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import Raphael from 'raphael';
 
-class Animation extends Component {
-	componentDidMount() {
+const Animation = () => {
+	const animation = () => {
 		let paper = Raphael('animate_container', 800, 600);
-
 		let background = paper.rect(0, 0, 800, 600);
 		background.attr({ fill: 'blue' });
 
@@ -24,15 +23,15 @@ class Animation extends Component {
 			ball.animate({ cy: 50, cx: 50 }, 500, 'ease-out', bounceDrop1);
 		};
 		bounceDrop1();
-	}
+	};
 
-	render() {
-		return (
-			<div>
-				<div id="animate_container"></div>
-			</div>
-		);
-	}
-}
+	useEffect(animation);
+
+	return (
+		<div>
+			<div id="animate_container"></div>
+		</div>
+	);
+};
 
 export default Animation;
