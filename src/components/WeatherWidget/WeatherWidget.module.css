@@ -8,7 +8,11 @@
 	background: #333;
 	color: #fff;
 }
-
+code {
+	background: #eee;
+	display: block;
+	padding: 10px;
+}
 .WeatherWidget p {
 	text-align: center;
 }

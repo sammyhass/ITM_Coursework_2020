@@ -6,7 +6,8 @@ import styles from './WeatherWidget.module.css';
 const WeatherWidget = () => {
 	const [weatherData, setWeatherData] = useState();
 	const [position, setPosition] = useState();
-	const [error, setError] = useState();
+	const [posError, setPosError] = useState();
+	const [weatherError, setWeatherError] = useState();
 
 	const kToC = k => Math.round(k - 273.15);
 
@@ -15,7 +16,7 @@ const WeatherWidget = () => {
 			await navigator.geolocation.getCurrentPosition(
 				pos =>
 					setPosition({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
-				err => setError(err),
+				err => setPosError(err),
 				{ enableHighAccuracy: true }
 			);
 		})();
@@ -25,7 +26,7 @@ const WeatherWidget = () => {
 	useEffect(() => {
 		(async () => {
 			if (!position) return;
-			if (error) return;
+			if (posError) return;
 			await axios({
 				url: 'http://api.openweathermap.org/data/2.5/weather',
 				params: {
@@ -35,9 +36,9 @@ const WeatherWidget = () => {
 				},
 			})
 				.then(data => setWeatherData(data.data))
-				.catch(e => setError(e));
+				.catch(e => setWeatherError(e));
 		})();
-	}, [position, error]);
+	}, [position, posError]);
 
 	return weatherData ? (
 		<div className={styles.WeatherWidget}>
@@ -57,10 +58,22 @@ const WeatherWidget = () => {
 				<p>{kToC(weatherData.main.temp) + '\u00B0C'}</p>
 			</div>
 		</div>
-	) : error ? (
-		<p>Something went wrong trying to retrieve weather data...</p>
+	) : weatherError ? (
+		<div>
+			<b>Something went wrong trying to retrieve weather data...</b>
+			<br />
+			<code>
+				<b>Error</b> <br />
+				{weatherError.response.data.message}
+			</code>
+		</div>
+	) : posError ? (
+		<div>
+			<b>Something went wrong trying to get your location</b>
+			<code>{posError.message}</code>
+		</div>
 	) : (
-		<p>Loading</p>
+		<b>Loading Weather Widget...</b>
 	);
 };
 
