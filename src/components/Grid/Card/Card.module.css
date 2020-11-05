@@ -19,9 +19,15 @@
 .HobbyCard p {
 	padding: 0 5px;
 }
-
+.HobbyCard img {
+	transition: all 0.4s;
+}
 .HobbyCard:hover {
 	box-shadow: 2px 2px 3px #bbb;
+}
+
+.HobbyCard:hover img {
+	filter: grayscale(100%);
 }
 
 @media (max-width: 750px) {

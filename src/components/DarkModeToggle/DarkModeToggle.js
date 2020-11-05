@@ -9,11 +9,11 @@ const DarkModeToggle = () => {
 		<div className={styles.DarkModeToggle}>
 			{darkMode.value ? (
 				<button type="button" onClick={darkMode.disable}>
-					☀
+					Toggle Dark Mode
 				</button>
 			) : (
 				<button type="button" onClick={darkMode.enable}>
-					☾
+					Toggle Dark Mode
 				</button>
 			)}
 		</div>
