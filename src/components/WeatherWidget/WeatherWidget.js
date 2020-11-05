@@ -26,15 +26,16 @@ const WeatherWidget = () => {
 		(async () => {
 			if (!position) return;
 			if (error) return;
-			const wData = await axios({
+			await axios({
 				url: 'http://api.openweathermap.org/data/2.5/weather',
 				params: {
 					lat: position.lat,
 					lon: position.lon,
 					appid: 'e137d001fec7011c14941a1179199188',
 				},
-			});
-			setWeatherData(wData.data);
+			})
+				.then(data => setWeatherData(data.data))
+				.catch(e => setError(e));
 		})();
 	}, [position, error]);
 
