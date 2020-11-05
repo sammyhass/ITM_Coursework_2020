@@ -1,5 +1,6 @@
 import React from 'react';
 import GifCard from '../components/GifCard';
+import WeatherWidget from '../components/WeatherWidget/WeatherWidget';
 
 import styles from './Home.module.css';
 
@@ -27,6 +28,7 @@ const Home = () => {
 					Magna eu dolore ad laboris. Qui nulla irure minim aute aliquip
 					consectetur incididunt in esse ipsum officia do dolore quis.
 				</p>
+				<WeatherWidget />
 			</div>
 		</div>
 	);

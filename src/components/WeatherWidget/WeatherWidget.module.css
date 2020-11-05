@@ -1,0 +1,14 @@
+.WeatherWidget {
+	width: 100%;
+	border: 1px solid #333;
+	padding: 1px 2px;
+	border-radius: 5px;
+	text-align: center;
+	margin: 60px 0;
+	background: #333;
+	color: #fff;
+}
+
+.WeatherWidget p {
+	text-align: center;
+}
