@@ -1,7 +1,4 @@
 .Animation {
-	width: 100%;
-}
-
-#animate_container {
-	width: 100%;
+	width: 80%;
+	margin: auto;
 }
