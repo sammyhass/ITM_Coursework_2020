@@ -16,6 +16,9 @@ const FootballerAnimation = () => {
 		let background = paper.rect(0, 0, 800, 600);
 		background.attr('fill', darkMode.value ? 'midnightblue' : 'skyblue');
 
+		let skyBulb = paper.circle(730, 70, 40);
+		skyBulb.attr('fill', darkMode.value ? 'lightgrey' : 'yellow');
+
 		let grass = paper.rect(0, 400, 800, 200);
 		grass.attr('fill', 'green');
 
@@ -61,7 +64,17 @@ const FootballerAnimation = () => {
 		setTimeout(runForward, 1000);
 
 		return () => {
+			background.remove();
+			runningPlayer.remove();
+			kickingPlayer.remove();
+			football.remove();
 			paper.clear();
+
+			try {
+				paper.remove();
+			} catch (e) {
+				console.log(e);
+			}
 		};
 	};
 
