@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './GifCard.module.css';
 
-const GifCard = ({ img, caption }) => {
+const GifCard = ({ img }) => {
 	return (
 		<div className={styles.GifCard}>
 			<figure>
@@ -10,11 +10,11 @@ const GifCard = ({ img, caption }) => {
 					<>
 						<img
 							onClick={() => {
-								window.open(img, '_blank');
+								window.open(img.url, '_blank');
 								window.focus();
 							}}
 							src={img.images.fixed_height.url}
-							alt={img}
+							alt={img.title}
 						/>
 						<figcaption>{img.title}</figcaption>
 					</>

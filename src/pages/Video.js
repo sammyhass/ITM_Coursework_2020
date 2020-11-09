@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Video = () => {
+	useEffect(() => {
+		document.title = 'Video';
+	}, []);
 	return <div>Video</div>;
 };
 

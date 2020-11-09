@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styles from './Coursework.module.css';
 
 import img from '../assets/PSD_Lab.jpg';
 const Coursework = () => {
+	useEffect(() => {
+		document.title = 'Coursework';
+	}, []);
 	return (
 		<div className={styles.Coursework}>
 			<h1>Labs</h1>

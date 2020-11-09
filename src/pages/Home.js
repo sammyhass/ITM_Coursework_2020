@@ -9,6 +9,7 @@ const Home = () => {
 	const [gifs, setGifs] = useState();
 	const [gif, setGif] = useState();
 	useEffect(() => {
+		document.title = 'Home';
 		const getGif = async () => {
 			await axios
 				.get('https://api.giphy.com/v1/gifs/trending', {
