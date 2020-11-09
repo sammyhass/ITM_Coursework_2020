@@ -28,7 +28,7 @@ const WeatherWidget = () => {
 			if (!position) return;
 			if (posError) return;
 			await axios({
-				url: 'http://api.openweathermap.org/data/2.5/weather',
+				url: 'https://api.openweathermap.org/data/2.5/weather',
 				params: {
 					lat: position.lat,
 					lon: position.lon,
