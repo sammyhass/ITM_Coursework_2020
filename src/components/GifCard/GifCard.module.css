@@ -1,6 +1,7 @@
 .GifCard {
 	margin: 0;
 	padding: 0;
+	cursor: pointer;
 }
 .GifCard figure {
 	width: 100%;
@@ -35,6 +36,5 @@
 @media (max-width: 750px) {
 	.GifCard figure img {
 		width: 200px;
-		border-radius: 100%;
 	}
 }

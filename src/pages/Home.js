@@ -1,18 +1,54 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import GifCard from '../components/GifCard';
 import WeatherWidget from '../components/WeatherWidget/WeatherWidget';
 
 import styles from './Home.module.css';
 
 const Home = () => {
+	const [gifs, setGifs] = useState();
+	const [gif, setGif] = useState();
+	useEffect(() => {
+		const getGif = async () => {
+			await axios
+				.get('https://api.giphy.com/v1/gifs/trending', {
+					params: {
+						api_key: 'WSZlOvWP90tv5bERnuKXNutnipA4BEUm',
+						limit: 10,
+					},
+				})
+				.catch(e => console.log(e))
+				.then(data => {
+					setGifs(data.data.data);
+					setGif(0);
+				});
+		};
+
+		getGif();
+	}, []);
+
+	useEffect(() => {
+		if (gif < 0) {
+			setGif(9);
+		}
+		if (gif > 9) {
+			setGif(0);
+		}
+	}, [gif]);
+
 	return (
 		<div className={styles.Home}>
 			<div className={styles.HomeLeft}>
 				<h1>Intro to Multimedia Coursework</h1>
-				<GifCard
-					img="https://media.giphy.com/media/l2R05cXal4YGdBRQI/source.gif"
-					caption="This is a caption"
-				/>
+				{gifs ? (
+					<>
+						<GifCard img={gifs[gif]} />
+						<div className={styles.GifButtons}>
+							<button onClick={() => setGif(gif + 1)}>&larr;</button>
+							<button onClick={() => setGif(gif - 1)}>&rarr;</button>
+						</div>
+					</>
+				) : null}
 			</div>
 			<div className={styles.HomeRight}>
 				<h2>This is the home page</h2>

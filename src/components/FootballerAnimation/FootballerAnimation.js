@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import Raphael from 'raphael';
 
@@ -10,6 +10,7 @@ import useDarkMode from 'use-dark-mode';
 
 const FootballerAnimation = () => {
 	const darkMode = useDarkMode();
+	const ref = useRef();
 
 	const animation = () => {
 		let paper = Raphael('animation_container', 800, 600);
@@ -26,7 +27,18 @@ const FootballerAnimation = () => {
 		football.hide();
 
 		let goal = paper.image(goalImage, 450, 275, 400, 300);
+		const text = paper.text(350, 100, 'GOAL');
+		text.attr({
+			'font-size': 100,
+			'text-align': 'center',
+			'font-family': 'Roboto',
+			fill: 'white',
+		});
+		text.hide();
+
 		goal.toBack();
+		football.toBack();
+
 		grass.toBack();
 		background.toBack();
 
@@ -35,8 +47,13 @@ const FootballerAnimation = () => {
 		kickingPlayer.hide();
 
 		const runForward = () => {
-			football.animate({ x: 210, y: 400 });
+			football.attr({ opacity: 1, x: 210, y: 400 });
 			football.hide();
+			football.toFront();
+			goal.attr({ opacity: 1, x: 450, y: 275 });
+			goal.show();
+			text.hide();
+
 			runningPlayer.animate({ x: 100 }, 1000, 'ease-in', kick);
 		};
 
@@ -53,15 +70,22 @@ const FootballerAnimation = () => {
 		const resetBall = () => {
 			kickingPlayer.remove();
 			runningPlayer = paper.image(footballerRun, -200, 300, 200, 180);
-			runningPlayer.animate({ x: -200 }, 100, 'bounce');
 
 			kickingPlayer = paper.image(footballerKick, 50, 300, 200, 180);
 			kickingPlayer.hide();
 			runningPlayer.show();
-			football.animate({ x: -210, y: 400 }, 1000, runForward);
+
+			football.animate({ opacity: 0 }, 1000, goalScored);
 		};
 
-		setTimeout(runForward, 1000);
+		const goalScored = () => {
+			ref.current.addEventListener('click', () => {
+				runForward();
+			});
+			text.show();
+		};
+
+		runForward();
 
 		return () => {
 			background.remove();
@@ -80,7 +104,7 @@ const FootballerAnimation = () => {
 
 	useEffect(animation, [darkMode.value]);
 
-	return <div id="animation_container"></div>;
+	return <div id="animation_container" ref={ref}></div>;
 };
 
 export default FootballerAnimation;
