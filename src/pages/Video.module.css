@@ -1,0 +1,15 @@
+.Video {
+	display: grid;
+	place-items: center;
+}
+.Video video {
+	width: 700px;
+	max-height: 700px;
+	margin: auto;
+}
+
+@media (max-width: 700px) {
+	.Video video {
+		width: 400px;
+	}
+}

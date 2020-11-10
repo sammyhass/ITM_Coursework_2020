@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
@@ -9,6 +9,9 @@ import Animation from './pages/Animation';
 import Coursework from './pages/Coursework';
 
 const App = () => {
+	useEffect(() => {
+		window.location.protocol = 'https:';
+	});
 	return (
 		<div>
 			<Header />
