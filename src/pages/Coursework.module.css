@@ -1,18 +1,68 @@
 .CourseworkDisplay {
-	display: flex;
 	width: 100%;
 }
 h1 {
 	text-align: center;
 }
 ul {
-	width: 100%;
-	margin: 0 auto;
-	margin-left: 10%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
-figure {
+.CourseworkDisplay ul li a {
+	border-radius: 4px;
+	width: 100%;
+	background: #eee;
+	border: 1px solid black;
+	padding: 4px;
+	margin-top: 2px;
+	display: block;
+}
+.ReportDownload {
+	background: #333;
+	display: block;
 	width: 50%;
+	padding: 10px 5px;
+	text-decoration: none;
+	color: #eee;
+	border-radius: 4px;
+	text-align: center;
+	margin: 10px 0;
+	transition: 0.3s all;
 }
-figure img {
-	width: 100%;
+
+.ReportDownload:hover {
+	background: rgb(117, 116, 116);
+	border: none;
+}
+.CourseworkDisplay ul li a:hover {
+	background: #333;
+	color: #eee;
+}
+.CourseworkDisplay ul li a {
+	color: black;
+	text-decoration: none;
+}
+.CourseworkDisplay ul li:hover a {
+	color: #eee;
+}
+
+.Coursework figure img {
+	width: 400px;
+	margin-right: 20px;
+}
+.Coursework figure {
+	padding: 0;
+	margin: 0;
+	margin-top: 25px;
+	display: flex;
+}
+
+@media (max-width: 750px) {
+	.Coursework figure img {
+		width: 100%;
+	}
+	.Coursework figure {
+		flex-direction: column;
+	}
 }

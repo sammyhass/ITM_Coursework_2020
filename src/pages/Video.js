@@ -10,7 +10,10 @@ const Video = () => {
 	}, []);
 	return (
 		<div className={styles.Video}>
-			<video width="400" controls src={video} preload="true" />
+			<figure>
+				<video width="400" controls src={video} preload="true" />
+				<figcaption>Music: Sober by Childish Gambino</figcaption>
+			</figure>
 		</div>
 	);
 };

@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import styles from './Coursework.module.css';
 
 import img from '../assets/PSD_Lab.jpg';
+import courseworkPDF from '../assets/Coursework.pdf';
+
 const Coursework = () => {
 	useEffect(() => {
 		document.title = 'Coursework';
@@ -25,7 +27,21 @@ const Coursework = () => {
 				</ul>
 				<figure>
 					<img alt={'Photoshop Lab'} src={img} />
-					<figcaption>Photoshop Lab</figcaption>
+					<>
+						<figcaption>
+							<b>Photoshop Lab</b>
+							<br />I produced this image in photoshop as part of the photoshop
+							lab, I used masking to create the effects.
+							<br />
+							<a
+								className={styles.ReportDownload}
+								href={courseworkPDF}
+								download
+							>
+								<i className="fa fa-download"></i> Download Report
+							</a>
+						</figcaption>
+					</>
 				</figure>
 			</div>
 		</div>

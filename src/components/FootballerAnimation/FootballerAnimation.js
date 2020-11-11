@@ -127,7 +127,21 @@ const FootballerAnimation = ({ audioIsPlaying }) => {
 			);
 
 			football.toFront();
-			football.animate({ transform: 'r' + 360, width: 150, height: 150 }, 3000);
+			football.animate(
+				{ transform: 'r' + 360, width: 150, height: 150 },
+				3000,
+				'elastic',
+				() => {
+					text.animate(
+						{
+							fill: 'blue',
+							'stroke-width': 2,
+							stroke: 'black',
+						},
+						2000
+					);
+				}
+			);
 		};
 
 		if (audioIsPlaying) {

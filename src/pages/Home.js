@@ -43,27 +43,24 @@ const Home = () => {
 				<h1>Intro to Multimedia Coursework</h1>
 				{gifs ? (
 					<>
-						<GifCard img={gifs[gif]} />
 						<div className={styles.GifButtons}>
 							<button onClick={() => setGif(gif + 1)}>&larr;</button>
 							<button onClick={() => setGif(gif - 1)}>&rarr;</button>
 						</div>
+						<GifCard img={gifs[gif]} />
 					</>
 				) : null}
 			</div>
 			<div className={styles.HomeRight}>
 				<h2>This is the home page</h2>
 				<p>
-					Incididunt est velit anim in ullamco nostrud cupidatat incididunt
-					nulla dolore sint. Lorem fugiat incididunt occaecat aute culpa
-					consequat cupidatat ad cillum commodo enim. Elit eu enim amet sint
-					aliquip irure ipsum deserunt do consectetur occaecat consequat
-					laboris. Laborum ut sint consectetur voluptate pariatur ex eiusmod
-					nulla eu aute pariatur. Labore dolor veniam nisi sit. Reprehenderit
-					aliquip fugiat dolor anim excepteur incididunt aliqua est pariatur
-					cillum ea ex sint. Voluptate non in sunt id ea cillum esse excepteur.
-					Magna eu dolore ad laboris. Qui nulla irure minim aute aliquip
-					consectetur incididunt in esse ipsum officia do dolore quis.
+					Welcome to my coursework. This is the home page, feel free to browse
+					around the website. Check out my animation, my hobbies, my
+					introductory video and my coursework. Below you'll find the current
+					weather for your location. The GIF included on this page is taken from
+					the trending section of <a href="https://giphy.com/">Giphy</a>. You
+					can check out other trending gifs using the arrow buttons above the
+					image.
 				</p>
 				<WeatherWidget />
 			</div>
