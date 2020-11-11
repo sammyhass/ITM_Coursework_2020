@@ -1,23 +1,27 @@
-.Controls {
-	width: 100%;
+.PlayerControls {
+	width: 800px;
 	height: 60px;
+	background: #333;
 	border-radius: 4px;
 	align-items: center;
 	display: block;
 	text-align: center;
+	margin: auto;
 }
 
-.Controls button {
+.PlayerControls button {
 	background: transparent;
 	border: none;
 	font-size: 1.2em;
 }
 
-.Controls button:focus {
+.PlayerControls button:focus {
 	outline: 0;
 	cursor: pointer;
 }
-
+.PlayerControls p {
+	color: #eee;
+}
 .slider {
 	width: 100%;
 	margin: auto;
@@ -46,7 +50,7 @@
 }
 
 .slider:hover {
-	background: #ddd;
+	background: #222;
 }
 
 .AdditionalControls {

@@ -6,9 +6,12 @@ import footballImage from '../../assets/animation/Ball.png';
 import footballerRun from '../../assets/animation/Footballer.gif';
 import footballerKick from '../../assets/animation/Kicking.gif';
 import goalImage from '../../assets/animation/Goal.png';
+
 import useDarkMode from 'use-dark-mode';
 
-const FootballerAnimation = () => {
+import styles from './FootballerAnimation.module.css';
+
+const FootballerAnimation = ({ audioIsPlaying }) => {
 	const darkMode = useDarkMode();
 	const ref = useRef();
 
@@ -32,9 +35,10 @@ const FootballerAnimation = () => {
 			'font-size': 100,
 			'text-align': 'center',
 			'font-family': 'Roboto',
-			fill: 'white',
 		});
 		text.hide();
+		const clickToRetry = paper.text(350, 100, 'Click to score again!');
+		clickToRetry.hide();
 
 		goal.toBack();
 		football.toBack();
@@ -47,11 +51,14 @@ const FootballerAnimation = () => {
 		kickingPlayer.hide();
 
 		const runForward = () => {
+			football.attr({ width: 37, height: 37 });
+			skyBulb.attr({ r: 40, cx: 730, cy: 70 });
+			clickToRetry.hide();
 			football.attr({ opacity: 1, x: 210, y: 400 });
 			football.hide();
-			football.toFront();
 			goal.attr({ opacity: 1, x: 450, y: 275 });
 			goal.show();
+
 			text.hide();
 
 			runningPlayer.animate({ x: 100 }, 1000, 'ease-in', kick);
@@ -60,38 +67,81 @@ const FootballerAnimation = () => {
 		const kick = () => {
 			runningPlayer.hide();
 			kickingPlayer.show();
+			football.attr({ width: 37, height: 37 });
 			setTimeout(() => {
 				football.show();
 			}, 280);
 
-			football.animate({ x: 700, y: 350 }, 1000, 'linear', resetBall);
+			football.animate({ x: 700, y: 350 }, 1200, 'linear', resetBall);
 		};
 
 		const resetBall = () => {
-			kickingPlayer.remove();
-			runningPlayer = paper.image(footballerRun, -200, 300, 200, 180);
+			try {
+				kickingPlayer.remove();
+				runningPlayer = paper.image(footballerRun, -200, 300, 200, 180);
 
-			kickingPlayer = paper.image(footballerKick, 50, 300, 200, 180);
-			kickingPlayer.hide();
-			runningPlayer.show();
+				kickingPlayer = paper.image(footballerKick, 50, 300, 200, 180);
+				kickingPlayer.hide();
+				runningPlayer.show();
+			} catch (e) {
+				console.log(e);
+			}
 
-			football.animate({ opacity: 0 }, 1000, goalScored);
+			football.animate(
+				{ width: 100, height: 100, x: 250, y: 350 },
+				1000,
+				'elastic',
+				goalScored
+			);
 		};
 
 		const goalScored = () => {
 			ref.current.addEventListener('click', () => {
 				runForward();
 			});
+
+			skyBulb.animate(
+				{
+					r: 600,
+					cx: 400,
+					cy: 200,
+				},
+				1000,
+				'linear'
+			);
 			text.show();
+			text.animate(
+				{
+					x: 300,
+					y: 200,
+				},
+				1000,
+				() => {
+					clickToRetry.show();
+					clickToRetry.attr({
+						x: 280,
+						y: 300,
+						'font-size': 20,
+					});
+				}
+			);
+
+			football.toFront();
+			football.animate({ transform: 'r' + 360, width: 150, height: 150 }, 3000);
 		};
 
-		runForward();
+		if (audioIsPlaying) {
+			runForward();
+		}
 
 		return () => {
 			background.remove();
 			runningPlayer.remove();
 			kickingPlayer.remove();
 			football.remove();
+			text.remove();
+			clickToRetry.remove();
+			grass.remove();
 			paper.clear();
 
 			try {
@@ -102,9 +152,11 @@ const FootballerAnimation = () => {
 		};
 	};
 
-	useEffect(animation, [darkMode.value]);
+	useEffect(animation, [darkMode.value, audioIsPlaying]);
 
-	return <div id="animation_container" ref={ref}></div>;
+	return (
+		<div className={styles.Animation} id="animation_container" ref={ref}></div>
+	);
 };
 
 export default FootballerAnimation;

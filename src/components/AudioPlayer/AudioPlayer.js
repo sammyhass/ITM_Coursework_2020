@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import PlayerControls from '../PlayerControls/PlayerControls';
+import PlayerControls from './PlayerControls/PlayerControls';
 import styles from './AudioPlayer.module.css';
 
 class AudioPlayer extends Component {
@@ -49,6 +49,7 @@ class AudioPlayer extends Component {
 		this.setState({
 			isPaused: false,
 		});
+		this.props.onAudioStart();
 		this.audioRef.current.play();
 	};
 
@@ -56,6 +57,7 @@ class AudioPlayer extends Component {
 		this.setState({
 			isPaused: true,
 		});
+		this.props.onAudioPause();
 		this.audioRef.current.pause();
 	};
 
