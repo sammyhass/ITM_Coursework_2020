@@ -87,6 +87,7 @@ class AudioPlayer extends Component {
 					ref={this.audioRef}
 				></audio>
 				<PlayerControls
+					width={this.props.width}
 					audioPlay={this.audioPlay}
 					audioPause={this.audioPause}
 					currentTime={this.state.currentTime}

@@ -22,7 +22,10 @@ class PlayerControls extends Component {
 	};
 	render() {
 		return (
-			<div className={styles.PlayerControls}>
+			<div
+				className={styles.PlayerControls}
+				style={{ width: this.props.width }}
+			>
 				<div>
 					<input
 						type="range"

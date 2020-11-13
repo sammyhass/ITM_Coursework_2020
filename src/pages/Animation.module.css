@@ -1,4 +1,19 @@
 .Animation {
-	width: 80%;
+	width: 100%;
 	margin: auto;
+}
+
+.Animation h2 {
+	text-align: center;
+}
+
+.AnimationChangeBtn {
+	width: 100%;
+	margin: auto;
+	margin-bottom: 20px;
+	background: #eee;
+	color: #333;
+	border: 1px solid #333;
+	border-radius: 5px;
+	padding: 5px 0;
 }
