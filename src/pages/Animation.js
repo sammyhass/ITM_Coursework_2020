@@ -24,7 +24,11 @@ const Animation = () => {
 
 	return (
 		<div className={styles.Animation}>
-			<h2>Press play to begin the animation!</h2>
+			<h2>
+				{animation === 1
+					? 'Press play to score'
+					: 'Press play to watch the bricks fall'}
+			</h2>
 			<button
 				className={styles.AnimationChangeBtn}
 				onClick={() => {
@@ -33,6 +37,7 @@ const Animation = () => {
 			>
 				Switch Animation
 			</button>
+
 			{animation === 1 ? (
 				<>
 					<FootballerAnimation audioIsPlaying={audioIsPlaying} />
