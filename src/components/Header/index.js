@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useViewportWidth } from '../../hooks/viewport';
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
 
 import styles from './Header.module.css';
 
@@ -11,7 +12,12 @@ const Header = () => {
 	let width = useViewportWidth();
 	return (
 		<div className={styles.Header}>
-			<h1>{location.pathname === '/' ? 'Home' : location.pathname.slice(1)}</h1>
+			<div className={styles.InnerHeader}>
+				<h1>
+					{location.pathname === '/' ? 'Home' : location.pathname.slice(1)}
+				</h1>
+				<DarkModeToggle />
+			</div>
 			<Navbar width={width} />
 		</div>
 	);

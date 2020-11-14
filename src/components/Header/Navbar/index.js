@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import DarkModeToggle from '../../DarkModeToggle/DarkModeToggle';
 import styles from './Navbar.module.css';
 
 const Navbar = ({ width }) => {
@@ -45,7 +44,6 @@ const Navbar = ({ width }) => {
 					<li>
 						<NavLink to="/animation">Animation</NavLink>
 					</li>
-					<DarkModeToggle />
 				</ul>
 			) : null}
 		</div>

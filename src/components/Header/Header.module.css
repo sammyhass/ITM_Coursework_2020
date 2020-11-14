@@ -11,4 +11,12 @@
 	margin: auto;
 	padding: 10px 10px;
 	text-transform: capitalize;
+	width: 100%;
+}
+
+.InnerHeader {
+	display: flex;
+	align-items: center;
+	place-items: center;
+	justify-content: space-between;
 }
