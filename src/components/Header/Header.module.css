@@ -20,3 +20,9 @@
 	place-items: center;
 	justify-content: space-between;
 }
+
+@media (max-width: 750px) {
+	.Header h1 {
+		text-align: right;
+	}
+}

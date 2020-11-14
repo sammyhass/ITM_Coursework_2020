@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import styles from './Coursework.module.css';
 
 import img from '../assets/PSD_Lab.jpg';
-import courseworkPDF from '../assets/Coursework.pdf';
+import courseworkPDF from '../assets/Coursework.docx';
 
 const Coursework = () => {
 	useEffect(() => {
