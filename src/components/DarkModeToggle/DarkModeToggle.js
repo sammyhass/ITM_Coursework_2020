@@ -7,7 +7,7 @@ const DarkModeToggle = () => {
 	const darkMode = useDarkMode(false);
 
 	const animation = () => {
-		let paper = Raphael('animation_container', 100, 25);
+		let paper = Raphael('dm_container', 100, 25);
 		paper.rect(0, 0, 98, 24);
 		let indictatorCircle = paper.circle(darkMode.value ? 86 : 12, 12, 10);
 		indictatorCircle.attr('fill', darkMode.value ? 'black' : 'white');
@@ -28,7 +28,7 @@ const DarkModeToggle = () => {
 	return (
 		<div className={styles.DarkModeToggle}>
 			Dark Mode
-			<div id="animation_container"></div>
+			<div id="dm_container"></div>
 		</div>
 	);
 };

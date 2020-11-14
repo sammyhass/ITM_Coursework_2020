@@ -16,7 +16,7 @@ const FootballerAnimation = ({ audioIsPlaying }) => {
 	const ref = useRef();
 
 	const animation = () => {
-		let paper = Raphael('animation_container', 800, 600);
+		let paper = Raphael('fb_container', 800, 600);
 		let background = paper.rect(0, 0, 800, 600);
 		background.attr('fill', darkMode.value ? 'midnightblue' : 'skyblue');
 
@@ -168,9 +168,7 @@ const FootballerAnimation = ({ audioIsPlaying }) => {
 
 	useEffect(animation, [darkMode.value, audioIsPlaying]);
 
-	return (
-		<div className={styles.Animation} id="animation_container" ref={ref}></div>
-	);
+	return <div className={styles.Animation} id="fb_container" ref={ref}></div>;
 };
 
 export default FootballerAnimation;
