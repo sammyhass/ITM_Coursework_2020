@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import video from '../assets/Video.webm';
+import video from '../assets/CourseworkIntro.mp4';
 
 import styles from './Video.module.css';
 
@@ -12,7 +12,6 @@ const Video = () => {
 		<div className={styles.Video}>
 			<figure>
 				<video width="400" controls src={video} preload="true" />
-				<figcaption>Music: Sober by Childish Gambino</figcaption>
 			</figure>
 		</div>
 	);
