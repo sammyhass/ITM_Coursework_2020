@@ -15,6 +15,7 @@ const HobbyCard = ({ name, description, image, imageCredit }) => {
 
 			<h2>{name}</h2>
 			<p>{description}</p>
+			<a href={imageCredit}>Image Credit</a>
 		</div>
 	);
 };
